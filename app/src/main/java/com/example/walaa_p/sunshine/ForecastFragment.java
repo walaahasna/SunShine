@@ -49,7 +49,7 @@ public class ForecastFragment extends Fragment {
         setHasOptionsMenu(true);
 
 
-        String[] weatherData = {"today-sunny-80", "tomoorrow-fogy-70", "thwersday-sunny-80"};
+        String[] weatherData = {"today-sunny-80", "tomoorrow-fogy-70", "thersday-sunny-80"};
 
 
         final ArrayAdapter<String> myAdapter =
