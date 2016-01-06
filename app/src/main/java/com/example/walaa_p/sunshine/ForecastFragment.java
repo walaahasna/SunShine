@@ -42,6 +42,7 @@ public class ForecastFragment extends Fragment {
     public ForecastFragment() {
     }
 
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.forecastfragment, menu);
@@ -54,7 +55,7 @@ public class ForecastFragment extends Fragment {
        int id= item.getItemId();
         if(id==R.id.action_refresh){
             FetchWeatherTask ft=new FetchWeatherTask();
-            ft.execute();
+            ft.execute("94043");
 
 
         }
@@ -112,6 +113,7 @@ public class ForecastFragment extends Fragment {
                 builder.appendQueryParameter("cnt", "7");
 
                 URL url = new URL(builder.build().toString());
+
                 //Log.v(LOG_TAG, "Weather URL: " + builder.build().toString());
 
                 // Create the request to OpenWeatherMap, and open the connection
