@@ -42,6 +42,24 @@ public class ForecastFragment extends Fragment {
     public ForecastFragment() {
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.forecastfragment, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+       int id= item.getItemId();
+        if(id==R.id.action_refresh){
+            FetchWeatherTask ft=new FetchWeatherTask();
+            ft.execute();
+
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
