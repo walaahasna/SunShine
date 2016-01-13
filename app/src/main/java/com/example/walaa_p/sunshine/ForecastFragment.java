@@ -82,6 +82,13 @@ public class ForecastFragment extends Fragment {
         ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
 
         listView.setAdapter(myAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String forecast=  myAdapter.getItem(position);
+                Toast.makeText(getActivity(),forecast,Toast.LENGTH_LONG).show();
+            }
+        });
         return rootView;
     }
     public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
