@@ -20,9 +20,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".detailactivity"
-            android:label="@string/title_activity_detailactivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".detailactivtiy"
+            android:label="@string/title_activity_detailactivtiy"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.walaa_p.sunshine.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:label="@string/title_activity_detailactivtiy"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.walaa_p.sunshine.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_detailactivtiy"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.walaa_p.sunshine.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

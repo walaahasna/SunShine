@@ -50,16 +50,35 @@ public class ForecastFragment extends Fragment {
     }
 
     @Override
+
     public boolean onOptionsItemSelected(MenuItem item) {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String location = sharedPref.getString(getString(R.string.pref_location_key),
+                getString(R.string.pref_location_default));
+        String unit = sharedPref.getString(getString(R.string.pref_units_key),
+                getString(R.string.pref_units_imperial));
+        Intent intent = null;
 
-       int id= item.getItemId();
-        if(id==R.id.action_refresh){
-            FetchWeatherTask ft=new FetchWeatherTask();
-            ft.execute("94043");
-
-
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_refresh:
+                FetchWeatherTask task = new FetchWeatherTask();
+                task.execute(location, unit);
+                return true;
+            case R.id.action_map_location:
+                intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("geo:0,0?q=" + location));
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+                return true;
+            case R.id.action_settings:
+                intent = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
+                return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -85,8 +104,9 @@ public class ForecastFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String forecast=  myAdapter.getItem(position);
-                Toast.makeText(getActivity(),forecast,Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, myAdapter.getItem(position));
+                startActivity(intent);
             }
         });
         return rootView;
