@@ -62,7 +62,7 @@ public class ForecastFragment extends Fragment {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.action_refresh:
-                FetchWeatherTask task = new FetchWeatherTask();
+               FetchWeatherTask task = new FetchWeatherTask();
                 task.execute(location, unit);
                 return true;
             case R.id.action_map_location:
@@ -78,6 +78,8 @@ public class ForecastFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
             default:
                 return super.onOptionsItemSelected(item);
+
+
         }
     }
 

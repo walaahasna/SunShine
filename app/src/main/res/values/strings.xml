@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Sunshine</string>
+    <string name="app_name">SunShine</string>
+
+
+    <string name="title_activity_detailactivity">detailactivity</string>
+    <string name="title_activity_detailactivtiy">detailactivtiy</string>
+
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="action_refresh">Refresh</string>
