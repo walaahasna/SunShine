@@ -13,7 +13,7 @@
         android:key="@string/pref_units_key"
         android:title="@string/pref_units_label"
         android:dialogTitle="@string/pref_units_dialogTitle"
-
+        android:entries="@array/unit_options"
 
         android:defaultValue="@string/pref_units_imperial" />
 
